@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tek-Recolect</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:'Times New Roman', Times, serif;
+background:linear-gradient(135deg,#eef2f7,#dfe9f3);
+color:#1e2a38;
+min-height:100vh;
+display:flex;
+flex-direction:column;
+}
+
+/* NAV */
+nav{
+background:rgba(255,255,255,0.8);
+backdrop-filter:blur(10px);
+padding:15px 60px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 5px 20px rgba(0,0,0,0.05);
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.nav-links{
+display:flex;
+align-items:center;
+}
+
+.nav-logo img{
+width:55px;
+border-radius:12px;
+box-shadow:0 6px 15px rgba(0,0,0,0.2);
+transition:0.3s;
+}
+
+.nav-logo img:hover{
+transform:scale(1.05);
+}
+
+nav a{
+color:#1e2a38;
+margin:0 15px;
+text-decoration:none;
+font-weight:500;
+position:relative;
+}
+
+nav a::after{
+content:"";
+position:absolute;
+width:0;
+height:2px;
+background:#1a6cbe;
+left:0;
+bottom:-5px;
+transition:0.3s;
+}
+
+nav a:hover::after{
+width:100%;
+}
+
+.boton{
+background:linear-gradient(45deg,#1a6cbe,#2980f2);
+color:white;
+padding:10px 22px;
+border-radius:30px;
+font-weight:600;
+box-shadow:0 5px 15px rgba(26,108,190,0.4);
+}
+
+/* HERO */
+.hero{
+position:relative;
+height:85vh;
+display:flex;
+align-items:center;
+color:white;
+overflow:hidden;
+}
+
+.hero img{
+position:absolute;
+width:130%;
+height:100%;
+object-fit:cover;
+z-index:0;
+opacity:0.7;
+}
+
+.hero::before{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:linear-gradient(to right, rgba(10,20,40,0.9), rgba(10,20,40,0.2));
+z-index:1;
+}
+
+.hero-text{
+position:relative;
+z-index:2;
+padding-left:80px;
+max-width:600px;
+animation:fadeIn 1s ease;
+}
+
+.hero-text h1{
+font-size:58px;
+line-height:1.2;
+}
+
+.linea{
+width:80px;
+height:4px;
+background:linear-gradient(90deg,#f1c40f,#f39c12);
+margin-top:15px;
+border-radius:10px;
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(30px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+/* INFO */
+.info{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:80px;
+gap:50px;
+background:rgb(175, 188, 214);
+border-radius:20px;
+margin:30px;
+box-shadow:0 10px 40px rgba(0,0,0,0.05);
+transition:0.3s;
+}
+
+.info:hover{
+transform:translateY(-5px);
+}
+
+.info:nth-of-type(even){
+background:#f8fbff;
+flex-direction:row-reverse;
+}
+
+.texto{width:50%}
+
+.texto h2{
+margin-bottom:15px;
+font-size:32px;
+}
+
+.texto p{
+color:#555;
+line-height:1.7;
+}
+
+.imagen{width:50%;display:flex;justify-content:center}
+
+.imagen img{
+width:70%;
+max-width:520px;
+border-radius:40px;
+box-shadow:0 15px 35px rgba(3, 5, 3, 0.2);
+transition:0.5s;
+}
+
+.imagen img:hover{
+transform:scale(1.08);
+}
+
+/* CATÁLOGO */
+.catalogo-inicio{
+background:#f5efe2;
+padding:80px 40px;
+text-align:center;
+}
+
+.catalogo-inicio h2{
+font-size:50px;
+font-weight:bold;
+margin-bottom:10px;
+}
+
+.catalogo-inicio p{
+font-size:20px;
+margin-bottom:30px;
+color:#555;
+}
+
+.productos-inicio{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+}
+
+.producto-card{
+background:white;
+border-radius:20px;
+overflow:hidden;
+width:350px;
+box-shadow:0 8px 20px rgba(0,0,0,0.1);
+position:relative;
+transition:0.3s;
+}
+
+.producto-card:hover{
+transform:translateY(-8px);
+}
+
+.producto-card img{
+width:100%;
+height:250px;
+object-fit:cover;
+}
+
+.producto-card h3{
+font-size:28px;
+margin:15px;
+}
+
+.producto-card p{
+font-size:20px;
+color:#666;
+margin-bottom:15px;
+}
+
+.producto-card button{
+background:#27ae60;
+color:white;
+border:none;
+padding:12px 25px;
+border-radius:20px;
+margin-bottom:20px;
+cursor:pointer;
+font-weight:bold;
+}
+
+/* RESEÑAS */
+.reseñas{
+background:#fff;
+padding:80px 40px;
+text-align:center;
+}
+
+.reseñas h2{
+font-size:45px;
+margin-bottom:10px;
+}
+
+.reseñas p{
+font-size:20px;
+color:#666;
+margin-bottom:40px;
+}
+
+.reseñas-contenedor{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+}
+
+.reseña-card{
+background:#f8fbff;
+padding:30px;
+border-radius:20px;
+width:320px;
+box-shadow:0 8px 20px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+.reseña-card:hover{
+transform:translateY(-8px);
+}
+
+.reseña-card img{
+width:80px;
+height:80px;
+border-radius:50%;
+margin-bottom:15px;
+}
+
+.reseña-card h3{
+font-size:24px;
+margin-bottom:10px;
+}
+
+.estrellas{
+font-size:22px;
+margin-bottom:15px;
+}
+
+.reseña-card p{
+font-size:17px;
+line-height:1.5;
+color:#555;
+}
+
+/* FOOTER */
+footer{
+background:#0b1726;
+color:white;
+padding:30px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+}
+
+.footer-left{flex:1;}
+.footer-center{flex:1;text-align:center;}
+.redes{flex:1;text-align:right;}
+
+.redes img{
+width:30px;
+margin-left:12px;
+transition:0.3s;
+}
+
+.redes img:hover{
+transform:scale(1.2);
+}
+
+/*Pantalla de carga*/
+
+/* PRELOADER */
+#preloader{
+  position:fixed;
+  inset:0;
+  background:linear-gradient(135deg,#020617 0%,#0a1628 30%,#0d47a1 70%,#00b4ff 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+  transition:opacity 0.8s ease, visibility 0.8s ease;
+}
+
+#preloader.hidden{
+  opacity:0;
+  visibility:hidden;
+}
+
+.preloader-content{
+  text-align:center;
+  color:white;
+  animation:fadeInUp 0.8s ease;
+}
+
+.logo-wrapper{
+  position:relative;
+  width:120px;
+  height:120px;
+  margin:0 auto 30px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.logo-circle{
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#00b4ff,#0066ff);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 0 40px rgba(0,180,255,0.6), 0 0 80px rgba(0,102,255,0.4);
+  animation:logoFloat 2s ease-in-out infinite;
+  position:relative;
+  z-index:2;
+}
+
+.logo-text{
+  font-size:55px;
+  font-weight:bold;
+  color:white;
+  font-family:'Times New Roman', serif;
+  text-shadow:0 2px 10px rgba(0,0,0,0.3);
+}
+
+.pulse-ring{
+  position:absolute;
+  width:100px;
+  height:100px;
+  border:2px solid #00b4ff;
+  border-radius:50%;
+  animation:pulse 2s ease-out infinite;
+}
+
+.pulse-ring.delay{
+  animation-delay:1s;
+}
+
+.brand-name{
+  font-size:42px;
+  font-weight:bold;
+  letter-spacing:3px;
+  margin-bottom:8px;
+  background:linear-gradient(90deg,#ffffff,#00b4ff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.brand-tagline{
+  font-size:16px;
+  color:rgba(255,255,255,0.7);
+  letter-spacing:2px;
+  margin-bottom:35px;
+}
+
+.progress-bar{
+  width:240px;
+  height:4px;
+  background:rgba(255,255,255,0.15);
+  border-radius:10px;
+  margin:0 auto;
+  overflow:hidden;
+  position:relative;
+}
+
+.progress-fill{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,#00b4ff,#0066ff,#00b4ff);
+  border-radius:10px;
+  box-shadow:0 0 15px rgba(0,180,255,0.8);
+  animation:loadProgress 2.2s ease-in-out forwards;
+}
+
+@keyframes logoFloat{
+  0%,100%{transform:translateY(0) scale(1);}
+  50%{transform:translateY(-8px) scale(1.05);}
+}
+
+@keyframes pulse{
+  0%{transform:scale(1);opacity:0.8;}
+  100%{transform:scale(1.8);opacity:0;}
+}
+
+@keyframes loadProgress{
+  0%{width:0%;}
+  100%{width:100%;}
+}
+
+@keyframes fadeInUp{
+  from{opacity:0;transform:translateY(20px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+</style>
+</head>
+
+<body>
+
+   <!-- PANTALLA DE CARGA -->
+<div id="preloader">
+    <div class="preloader-content">
+      <div class="logo-wrapper">
+        <div class="logo-circle">
+         <img src="Imagenes/logo.jpg.jpg" style="width: 100%;height: 100%;border-radius: 50%;object-fit: cover;">
+    
+     </div>
+        <div class="pulse-ring"></div>
+        <div class="pulse-ring delay"></div>
+      </div>
+      <h1 class="brand-name">Tek-Recolect</h1>
+      <p class="brand-tagline">Cuidando nuestras playas</p>
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
+      </div>
+    </div>
+  </div>
+
+<nav>
+<div class="nav-links">
+<a href="nosotros.html">Nosotros</a>
+<a href="servicios.html">Servicios</a>
+<a href="Carrito.html">Carrito</a>
+<a href="#inicio">Inicio</a>
+<a href="registro.html" class="boton">Iniciar sesión</a>
+</div>
+
+<div class="nav-logo">
+<img src="d:\Proyecto final de tractores\Imagenes\logo.jpg.jpg">
+</div>
+</nav>
+
+<section id="inicio">
+
+<div class="hero">
+<img src="d:\Proyecto final de tractores\Imagenes\portada.png">
+<div class="hero-text">
+<h1>Tek-Recolect<br>Diseñados para<br>cuidar las playas</h1>
+<div class="linea"></div>
+</div>
+</div>
+
+<div class="info">
+<div class="texto">
+<h2>Soluciones para playas limpias</h2>
+<p>Mantener las playas limpias mediante el uso de tractores recolectores de basura.Con esto nuestro objetivo es reducir la cantidad de basura en las playas con equipos rentables y funcionales.</p>
+</div>
+<div class="imagen">
+<img src="d:\Proyecto final de tractores\Imagenes\tractor 3.jpg">
+</div>
+</div>
+
+<div class="info">
+<div class="texto">
+<h2>​Logística Segura</h2>
+<p>Operamos bajo términos Incoterm CIF, asegurando tu inversión desde el puerto de origen hasta la Aduana de Veracruz.</p>
+</div>
+<div class="imagen">
+<a href="d:\Proyecto final de tractores\Imagenes\video1.mp4" target="_blank">
+<img src="d:\Proyecto final de tractores\Imagenes\tractor 4.jpg">
+</a>
+</div>
+</div>
+
+<div class="info">
+<div class="texto">
+<h2>Nuestra Misión</h2>
+<p>Transformar el cuidado de las playas mexicanas mediante la importación de tecnología robótica y maquinaria especializada de alta eficiencia. Nos comprometemos a ofrecer soluciones sustentables que protejan el ecosistema marino y fortalezcan el turismo nacional a través de procesos de comercio exterior transparentes y legales.</p>
+</div>
+<div class="imagen">
+<a href="d:\Proyecto final de tractores\Imagenes\video2.mp4" target="_blank">
+<img src="d:\Proyecto final de tractores\Imagenes\tractor 5.jpg">
+</a>
+</div>
+</div>
+
+
+<section class="catalogo-inicio">
+<h2>Elige tus equipos</h2>
+<p>Toca <b>Agregar</b> para armar tu pedido.</p>
+
+<div class="productos-inicio">
+
+<div class="producto-card"><img src="d:\Proyecto final de tractores\Imagenes\producto1.jpg"><h3>Pro-Beach Harvester 2800</h3><p>$1,135,231 MXN</p><button onclick="agregarCarrito(1)">Agregar</button></div>
+
+<div class="producto-card"><img src="d:\Proyecto final de tractores\Imagenes\producto2.jpg"><h3>Front-Loader Shark</h3><p>$710,867 MXN</p><button onclick="agregarCarrito(2)">Agregar</button></div>
+
+<div class="producto-card"><img src="d:\Proyecto final de tractores\Imagenes\producto3.png"><h3>Track-Master Elite</h3><p>$1,977,903 MXN</p><button onclick="agregarCarrito(3)">Agregar</button></div>
+
+<div class="producto-card"><img src="d:\Proyecto final de tractores\Imagenes\producto4.jpg"><h3>Resort-Cleaner Turbo</h3><p>$516,602 MXN</p><button onclick="agregarCarrito(4)">Agregar</button></div>
+
+<div class="producto-card"><img src="d:\Proyecto final de tractores\Imagenes\producto5.jpg"><h3>Barracuda Track-Point</h3><p>$347,278 MXN</p><button onclick="agregarCarrito(5)">Agregar</button></div>
+
+<div class="producto-card"><img src="d:\Proyecto final de tractores\Imagenes\producto7.jpg"><h3>CC-500</h3><p>$240,728 MXN</p><button onclick="agregarCarrito(6)">Agregar</button></div>
+
+<div class="producto-card"><img src="d:\Proyecto final de tractores\Imagenes\producto6.jpg"><h3>Oasis-Ride 360</h3><p>$460,827 MXN</p><button onclick="agregarCarrito(7)">Agregar</button></div>
+
+<div class="producto-card"><img src="d:\Proyecto final de tractores\Imagenes\producto8.jpg"><h3>Cyber-Beach Bot</h3><p>$2,255,458 MXN</p><button onclick="agregarCarrito(8)">Agregar</button></div>
+
+</div>
+</section>
+
+<section class="reseñas">
+<h2>Opiniones de nuestros clientes</h2>
+<p>Empresas y clientes satisfechos con nuestros equipos.</p>
+
+<div class="reseñas-contenedor">
+<div class="reseña-card">
+<img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+<h3>Carlos Martínez</h3>
+<div class="estrellas">⭐⭐⭐⭐⭐</div>
+<p>"Excelente servicio y maquinaria de alta calidad."</p>
+</div>
+
+<div class="reseña-card">
+<img src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png">
+<h3>Ana López</h3>
+<div class="estrellas">⭐⭐⭐⭐⭐</div>
+<p>"Muy recomendables. La atencion fue muy buena."</p>
+</div>
+
+<div class="reseña-card">
+<img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png">
+<h3>Roberto Hernández</h3>
+<div class="estrellas">⭐⭐⭐⭐⭐</div>
+<p>"Tecnología innovadora y personal profesional."</p>
+</div>
+</div>
+</section>
+
+</section>
+
+<footer>
+<div class="footer-left">
+<p>©️ 2026 Tek-Recolect</p>
+</div>
+
+<div class="footer-center">
+<p><strong>Contacto:</strong></p>
+<p>📞 Tel: 55 1234 5678</p>
+<p>📧 Email: contacto@tekrecolect.com</p>
+<p>📍 Ubicación: Veracruz, México</p>
+</div>
+
+<div class="redes">
+<a href="https://www.instagram.com/tek_recolect" target="_blank">
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+</a>
+
+<a href="https://www.tiktok.com/@tekrecolect" target="_blank">
+<img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png">
+</a>
+</div>
+</footer>
+
+<script>
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+const productos = {
+1:{nombre:"Pro-Beach Harvester 2800",precio:"$1,135,231 MXN",img:"d:\\Proyecto final de tractores\\Imagenes\\producto1.jpg"},
+2:{nombre:"Front-Loader Shark",precio:"$710,867 MXN",img:"d:\\Proyecto final de tractores\\Imagenes\\producto2.jpg"},
+3:{nombre:"Track-Master Elite",precio:"$1,977,903 MXN",img:"d:\\Proyecto final de tractores\\Imagenes\\producto3.png"},
+4:{nombre:"Resort-Cleaner Turbo",precio:"$516,602 MXN",img:"d:\\Proyecto final de tractores\\Imagenes\\producto4.jpg"},
+5:{nombre:"Barracuda Track-Point",precio:"$347,278 MXN",img:"d:\\Proyecto final de tractores\\Imagenes\\producto5.jpg"},
+6:{nombre:"CC-500",precio:"$240,728 MXN",img:"d:\\Proyecto final de tractores\\Imagenes\\producto7.jpg"},
+7:{nombre:"Oasis-Ride 360",precio:"$460,827 MXN",img:"d:\\Proyecto final de tractores\\Imagenes\\producto6.jpg"},
+8:{nombre:"Cyber-Beach Bot",precio:"$2,255,458 MXN",img:"d:\\Proyecto final de tractores\\Imagenes\\producto8.jpg"}
+};
+
+function agregarCarrito(id){
+carrito.push(productos[id]);
+localStorage.setItem("carrito", JSON.stringify(carrito));
+alert(productos[id].nombre + " agregado al carrito 🛒");
+}
+
+/*Pantalla de carga*/
+
+window.addEventListener("load", () => {
+    const preloader = document.getElementById("preloader");
+
+    // Si ya se mostró en esta sesión, lo ocultamos de inmediato
+    if (sessionStorage.getItem("preloaderShown")) {
+      preloader.remove();
+      return;
+    }
+
+    // Primera visita en esta sesión: mostrar la animación
+    setTimeout(() => {
+      preloader.classList.add("hidden");
+      setTimeout(() => preloader.remove(), 800);
+      sessionStorage.setItem("preloaderShown", "true");
+    }, 2200);
+  });
+</script>
+
+</body>
+</html>

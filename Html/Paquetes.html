@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Paquetes</title>
+
+<style>
+
+body{
+margin:0;
+font-family: Arial, sans-serif;
+background:beige;
+}
+
+/* PORTADA */
+.hero{
+position:relative;
+width:100%;
+height:350px;
+overflow:hidden;
+}
+
+.hero img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.hero-text{
+position:absolute;
+bottom:40px;
+left:50px;
+color:white;
+background:rgba(0,0,0,0.5);
+padding:20px;
+border-radius:10px;
+max-width:600px;
+}
+
+/* CONTENIDO */
+.container{
+padding:40px;
+max-width:1100px;
+margin:auto;
+}
+
+/* TARJETAS */
+.cards{
+display:flex;
+gap:30px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.card{
+background:white;
+width:300px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+overflow:hidden;
+text-align:center;
+padding-bottom:15px;
+
+/* ANIMACIÓN */
+opacity:0;
+transform:translateY(50px);
+transition:0.6s;
+}
+
+.card.show{
+opacity:1;
+transform:translateY(0);
+}
+
+.card img{
+width:100%;
+height:200px;
+object-fit:cover;
+}
+
+.card h3{
+margin:10px 0 5px;
+}
+
+.card p{
+color:#555;
+padding:0 10px;
+}
+
+/* BOTÓN */
+button{
+margin-top:10px;
+padding:8px 15px;
+background:#27ae60;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background:#219150;
+}
+
+/* ESTRELLAS */
+.estrellas{
+font-size:20px;
+cursor:pointer;
+color:gray;
+}
+
+.estrellas span.activa{
+color:gold;
+}
+
+/* BOTÓN VOLVER */
+.volver{
+display:inline-block;
+margin-top:30px;
+background:#2c3e50;
+color:white;
+padding:10px 20px;
+text-decoration:none;
+border-radius:5px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- PORTADA -->
+<section class="hero">
+<img src="d:\Proyecto final de tractores\Imagenes\portada paquetes.png">
+
+<div class="hero-text">
+<h1>Paquetes para diferentes actividades.</h1>
+<p>Pudes contratar el paquetes que sea para tu uso en especifico.</p>
+</div>
+</section>
+
+<!-- CONTENIDO -->
+<div class="container">
+
+<h2>Paquetes</h2>
+
+<div class="cards">
+
+<!-- Paquete 1 -->
+<div class="card">
+<img src="d:\Proyecto final de tractores\Imagenes\paquete 1.jpg">
+<h3>Boutique & Resort" (Para hoteles pequeños y medianos)</h3>
+<p>Ideal para playas con muchos camastros y sombrillas donde se busca limpieza diaria y silenciosa.</p>
+<h3>Incluye</h3>
+<p>Compact-Cleaner (Rojo Manual).
+<p>Barracuda Track-Point (Naranja de Orugas).</p>
+<p>Precio Individual sumado: $588,006.00 MXN.</p>
+<p>Precio de Paquete (5% desc.): $558,605.00 MXN + IVA.</p>
+
+<div class="estrellas" onclick="calificar(this)">
+<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+</div>
+
+<button onclick="contratar('Paquete 1')">Contratar</button>
+</div>
+
+<!-- paquete 2 -->
+<div class="card">
+<img src="d:\Proyecto final de tractores\Imagenes\paquetes 2.jpg">
+<h3>Gran Turismo" (Para complejos hoteleros extensos)</h3>
+<p>Diseñado para resorts que tienen kilómetros de playa y necesitan rapidez y comodidad para el operador.</p>
+<h3>Incluye</h3>
+<p>1 Oasis-Ride 360 (Conductor a bordo).</p>
+<p>1 Resort-Cleaner Turbo (Remolque Turquesa).</p>
+<p>1 Barracuda Track-Point (Naranja de Orugas).</p>
+
+<div class="estrellas" onclick="calificar(this)">
+<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+</div>
+
+<button onclick="contratar('Paquete 2')">Contratar</button>
+</div>
+
+<!-- paquete 3 -->
+<div class="card">
+<img src="d:\Proyecto final de tractores\Imagenes\municipios.webp">
+<h3>Sargazo Cero / Municipal" (Para Ayuntamientos o Gobiernos)</h3>
+<p>La solución definitiva para crisis de sargazo y limpieza masiva en playas públicas.</p>
+<h3>Incluye</h3>
+<p>2 Pro-Beach Harvester (Azul de Remolque Grande).</p>
+<p>1 Front-Loader Shark (Naranja de Implemento Frontal).</p>
+<p>1 Cyber-Beach Bot (Robot Autónomo para zonas turísticas).</p>
+
+<div class="estrellas" onclick="calificar(this)">
+<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+</div>
+
+<button onclick="contactar('Carlos Ruiz')">Contactar</button>
+</div>
+
+</div>
+
+<a href="servicios.html" class="volver">⬅ Volver</a>
+
+</div>
+
+<script>
+
+/* ANIMACIÓN AL SCROLL */
+window.addEventListener("scroll", () => {
+let cards = document.querySelectorAll(".card");
+
+cards.forEach(card => {
+let top = card.getBoundingClientRect().top;
+
+if(top < window.innerHeight - 50){
+card.classList.add("show");
+}
+});
+});
+
+/* CONTACTO */
+function contratar(paquete){
+alert("📞 Has contratado el " + paquete);
+}
+
+/* CALIFICACIÓN */
+function calificar(contenedor){
+let estrellas = contenedor.querySelectorAll("span");
+
+estrellas.forEach((estrella, index) => {
+estrella.onclick = () => {
+estrellas.forEach(e => e.classList.remove("activa"));
+for(let i=0; i<=index; i++){
+estrellas[i].classList.add("activa");
+}
+}
+});
+}
+
+</script>
+
+</body>
+</html>

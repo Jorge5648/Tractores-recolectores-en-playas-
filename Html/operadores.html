@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Contratar Operador</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f2f2f2;
+margin:0;
+text-align:center;
+}
+
+.container{
+padding:40px;
+}
+
+.card{
+background:white;
+width:300px;
+margin:auto;
+padding:20px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.card img{
+width:100%;
+border-radius:10px;
+}
+
+h2{
+margin-top:10px;
+}
+
+p{
+color:#555;
+}
+
+button{
+margin-top:15px;
+padding:10px 20px;
+background:#27ae60;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+font-size:16px;
+}
+
+button:hover{
+background:#219150;
+}
+
+.mensaje{
+margin-top:15px;
+font-weight:bold;
+color:green;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Personal Capacitado Disponible</h1>
+
+<div class="card">
+
+<img src="d:\Proyecto final de tractores\Imagenes\persona_capacitada.webp">
+
+<h2>Juan Pérez</h2>
+
+<p>
+Operador certificado en maquinaria pesada con experiencia en limpieza de playas.
+</p>
+
+<p>
+✔ 5 años de experiencia<br>
+✔ Certificación<br>
+✔ Trabajo seguro
+</p>
+
+<button onclick="contratar()">Contratar</button>
+
+<p id="mensaje" class="mensaje"></p>
+
+</div>
+
+<br>
+<a href="servicios.html">⬅ Volver</a>
+
+</div>
+
+<script>
+
+function contratar(){
+document.getElementById("mensaje").innerText = "✅ Servicio contratado correctamente";
+}
+
+</script>
+
+</body>
+</html>

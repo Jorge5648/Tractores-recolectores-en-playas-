@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Servicios - Capacitación</title>
+
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#eef2f7,#dfe9f3);
+color:#1e2a38;
+}
+
+/* HEADER */
+header{
+background:linear-gradient(45deg,#0e60b3,#1a6cbe);
+color:white;
+padding:25px;
+text-align:center;
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
+nav{
+background:rgba(255,255,255,0.8);
+backdrop-filter:blur(10px);
+padding:15px 60px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 5px 20px rgba(0,0,0,0.05);
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.nav-links{
+display:flex;
+align-items:center;
+}
+
+.nav-logo img{
+width:55px;
+border-radius:12px;
+box-shadow:0 6px 15px rgba(0,0,0,0.2);
+transition:0.3s;
+}
+.nav-logo img:hover{
+transform:scale(1.05);
+}
+
+nav a{
+color:#1e2a38;
+margin:0 15px;
+text-decoration:none;
+font-weight:500;
+position:relative;
+}
+
+nav a::after{
+content:"";
+position:absolute;
+width:0;
+height:2px;
+background:#1a6cbe;
+left:0;
+bottom:-5px;
+transition:0.3s;
+}
+
+nav a:hover::after{
+width:100%;
+}
+
+.boton{
+background:linear-gradient(45deg,#1a6cbe,#2980f2);
+color:white;
+padding:10px 22px;
+border-radius:30px;
+font-weight:600;
+box-shadow:0 5px 15px rgba(26,108,190,0.4);
+}
+
+
+/* HERO */
+.hero{
+display:flex;
+align-items:center;
+justify-content:center;
+padding:60px;
+gap:50px;
+flex-wrap:wrap;
+animation:fadeIn 1s ease;
+}
+
+.hero img{
+width:420px;
+border-radius:20px;
+box-shadow:0 15px 40px rgba(0,0,0,0.2);
+transition:0.4s;
+}
+
+.hero img:hover{
+transform:scale(1.03);
+}
+
+.hero-text{
+max-width:500px;
+}
+
+.hero-text h2{
+font-size:32px;
+margin-bottom:15px;
+}
+
+.hero-text p{
+color:#555;
+line-height:1.6;
+}
+
+.hero-text button{
+margin-top:20px;
+padding:12px 25px;
+background:linear-gradient(45deg,#f1c40f,#f39c12);
+border:none;
+border-radius:25px;
+cursor:pointer;
+font-weight:600;
+transition:0.3s;
+box-shadow:0 5px 15px rgba(241,196,15,0.4);
+}
+
+.hero-text button:hover{
+transform:scale(1.05);
+}
+
+/* TARJETAS */
+.contenedor{
+display:flex;
+justify-content:center;
+gap:40px;
+flex-wrap:wrap;
+padding:60px;
+}
+
+.card{
+background:white;
+width:320px;
+border-radius:20px;
+box-shadow:0 15px 40px rgba(0,0,0,0.1);
+overflow:hidden;
+transition:0.4s;
+text-decoration:none;
+color:black;
+position:relative;
+opacity:0;
+transform:translateY(40px);
+}
+
+.card.visible{
+opacity:1;
+transform:translateY(0);
+}
+
+.card:hover{
+transform:translateY(-10px) scale(1.02);
+}
+
+.card img{
+width:100%;
+height:200px;
+object-fit:cover;
+}
+
+.card h3{
+padding:15px;
+}
+
+.card p{
+padding:0 15px 20px;
+color:#666;
+}
+
+/* FORMULARIO */
+.form-section{
+padding:80px 20px;
+text-align:center;
+background:#f9fbfd;
+}
+
+.form-box{
+max-width:600px;
+margin:auto;
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+.form-box input,
+.form-box select{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:10px;
+border:1px solid #ccc;
+}
+
+.form-box button{
+margin-top:20px;
+padding:12px 25px;
+background:linear-gradient(45deg,#1a6cbe,#2980f2);
+color:white;
+border:none;
+border-radius:25px;
+cursor:pointer;
+font-weight:600;
+}
+
+.form-box button:hover{
+transform:scale(1.05);
+}
+
+/* ANIMACIÓN */
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(30px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+<div class="nav-links">
+<a href="nosotros.html">Nosotros</a>
+<a href="servicios.html">Servicios</a>
+<a href="Carrito.html">Carrito</a>
+<a href="index.html">Inicio</a>
+<a href="registro.html" class="boton">Iniciar sesión</a>
+</div>
+
+<div class="nav-logo">
+<img src="d:\Proyecto final de tractores\Imagenes\logo.jpg.jpg">
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+
+<img src="d:\Proyecto final de tractores\Imagenes\operador.jpg">
+
+<div class="hero-text">
+<h2>Capacitación y Seguridad</h2>
+
+<p>
+Contamos con personal capacitado para operar tractores recolectores de basura en playas.
+</p>
+
+<a href="operadores.html">
+<button>Solicitar Servicio</button>
+</a>
+
+</div>
+
+</section>
+
+<!-- TARJETAS -->
+<section class="contenedor">
+
+<a href="tecnicos.html" class="card">
+<img src="d:\Proyecto final de tractores\Imagenes\tecnico.webp">
+<h3>Técnicos de Servicio</h3>
+<p>Mantenimiento y reparación profesional.</p>
+</a>
+
+<a href="Paquetes.html" class="card">
+<img src="d:\Proyecto final de tractores\Imagenes\paquetes.jpg">
+<h3>Paquetes</h3>
+<p>Diferentes paquetes para publico distinto.</p>
+</a>
+
+</section>
+
+<!-- FORMULARIO PRO -->
+<section class="form-section">
+
+<h2>Solicita tu servicio</h2>
+
+<div class="form-box">
+
+<input id="nombre" placeholder="Nombre">
+<input id="correo" placeholder="Correo">
+
+<select id="servicio">
+<option value="0">Selecciona servicio</option>
+<option value="5000">Capacitación básica</option>
+<option value="10000">Capacitación avanzada</option>
+<option value="15000">Mantenimiento técnico</option>
+</select>
+
+<input type="date" id="fecha">
+
+<p><strong>Cotización: $<span id="precio">0</span> MXN</strong></p>
+
+<button onclick="enviar()">Solicitar ahora</button>
+
+<p id="mensaje" style="margin-top:10px;color:green;"></p>
+
+</div>
+
+</section>
+
+<script>
+
+/* ANIMACIÓN TARJETAS */
+const cards = document.querySelectorAll(".card");
+
+function mostrar(){
+let trigger = window.innerHeight * 0.85;
+
+cards.forEach(c=>{
+let top = c.getBoundingClientRect().top;
+if(top < trigger){
+c.classList.add("visible");
+}
+});
+}
+
+window.addEventListener("scroll",mostrar);
+window.addEventListener("load",mostrar);
+
+/* COTIZADOR */
+document.getElementById("servicio").addEventListener("change", function(){
+document.getElementById("precio").textContent = this.value;
+});
+
+/* FORMULARIO */
+function enviar(){
+let nombre = document.getElementById("nombre").value;
+let correo = document.getElementById("correo").value;
+let servicio = document.getElementById("servicio").value;
+let fecha = document.getElementById("fecha").value;
+
+if(nombre=="" || correo=="" || servicio=="0" || fecha==""){
+alert("Completa todos los campos");
+return;
+}
+
+document.getElementById("mensaje").textContent = "Solicitud enviada correctamente ✔️";
+}
+
+</script>
+
+</body>
+</html>
