@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Nosotros - Tek-Recolect</title>
+
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#f4f6f9;
+color:#2c3e50;
+}
+
+ nav{
+background:rgba(255,255,255,0.8);
+backdrop-filter:blur(10px);
+padding:15px 60px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 5px 20px rgba(0,0,0,0.05);
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.nav-links{
+display:flex;
+align-items:center;
+}
+
+.nav-logo img{
+width:55px;
+border-radius:12px;
+box-shadow:0 6px 15px rgba(0,0,0,0.2);
+transition:0.3s;
+}
+.nav-logo img:hover{
+transform:scale(1.05);
+}
+
+nav a{
+color:#1e2a38;
+margin:0 15px;
+text-decoration:none;
+font-weight:500;
+position:relative;
+}
+
+nav a::after{
+content:"";
+position:absolute;
+width:0;
+height:2px;
+background:#1a6cbe;
+left:0;
+bottom:-5px;
+transition:0.3s;
+}
+
+nav a:hover::after{
+width:100%;
+}
+
+.boton{
+background:linear-gradient(45deg,#1a6cbe,#2980f2);
+color:white;
+padding:10px 22px;
+border-radius:30px;
+font-weight:600;
+box-shadow:0 5px 15px rgba(26,108,190,0.4);
+}
+
+/* SECCIONES */
+.seccion{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:80px 10%;
+gap:60px;
+opacity:0;
+transform:translateY(50px);
+transition:all 0.8s ease;
+}
+
+.seccion.visible{
+opacity:1;
+transform:translateY(0);
+}
+
+.reverse{flex-direction:row-reverse}
+
+/* TEXTO */
+.texto{width:50%}
+
+.texto h2{
+font-size:34px;
+margin-bottom:15px;
+color:#1a2a40;
+}
+
+.linea{
+width:70px;
+height:4px;
+background:linear-gradient(90deg,#f1c40f,#f39c12);
+margin-bottom:20px;
+border-radius:5px;
+}
+
+.texto p{
+line-height:1.7;
+color:#555;
+}
+
+/* IMAGEN */
+.imagen{
+width:50%;
+display:flex;
+justify-content:center;
+}
+
+.imagen img{
+width:100%;
+max-width:420px;
+border-radius:20px;
+box-shadow:0 15px 40px rgba(0,0,0,0.2);
+transition:0.4s;
+}
+
+.imagen img:hover{
+transform:scale(1.05);
+}
+
+/* FONDOS */
+.seccion:nth-child(even){background:white}
+.seccion:nth-child(odd){background:#f9fbfd}
+
+/* 🔥 ESTADÍSTICAS */
+.stats{
+background:#1a2a40;
+color:white;
+padding:60px 20px;
+display:flex;
+justify-content:center;
+gap:80px;
+flex-wrap:wrap;
+text-align:center;
+}
+
+.stat h3{
+font-size:40px;
+color:#f1c40f;
+}
+
+.stat p{
+margin-top:10px;
+color:#ddd;
+}
+
+/* 🔥 VALORES */
+.valores{
+padding:80px 10%;
+text-align:center;
+background:white;
+}
+
+.valores h2{
+font-size:32px;
+margin-bottom:40px;
+}
+
+.cards{
+display:flex;
+justify-content:center;
+gap:40px;
+flex-wrap:wrap;
+}
+
+.card{
+background:#f4f6f9;
+padding:30px;
+width:250px;
+border-radius:15px;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card h3{
+margin-bottom:10px;
+color:#1a2a40;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.seccion{
+flex-direction:column;
+text-align:center;
+}
+
+.texto,.imagen{
+width:100%;
+}
+}
+
+</style>
+</head>
+
+<body>
+<nav>
+<div class="nav-links">
+<a href="nosotros.html">Nosotros</a>
+<a href="servicios.html">Servicios</a>
+<a href="Carrito.html">Carrito</a>
+<a href="index.html">Inicio</a>
+<a href="registro.html" class="boton">Iniciar sesión</a>
+</div>
+
+<div class="nav-logo">
+<img src="d:\Proyecto final de tractores\Imagenes\logo.jpg.jpg">
+</div>
+</nav>
+<!-- SECCIÓN 1 -->
+<div class="seccion">
+<div class="texto">
+<h2>Una inversión rentable</h2>
+<div class="linea"></div>
+<p>
+Nuestros tractores recolectores están diseñados para ofrecer soluciones eficientes en la limpieza de playas.
+</p>
+</div>
+<div class="imagen">
+<img src="d:\Proyecto final de tractores\Imagenes\tractor 1.jpeg">
+</div>
+</div>
+
+<!-- SECCIÓN 2 -->
+<div class="seccion reverse">
+<div class="texto">
+<h2>​Ingeniería Alemana</h2>
+<div class="linea"></div>
+<p>
+Importamos directamente desde Hamburgo equipos diseñados para durar y operar en condiciones marinas severas.Para que en el momento de que lleguen a Mexico esten en buen estado y rindan Excelente.
+</p>
+</div>
+<div class="imagen">
+<img src="d:\Proyecto final de tractores\Imagenes\tractor 2.jpg">
+</div>
+</div>
+
+<!-- 🔥 ESTADÍSTICAS -->
+<div class="stats">
+<div class="stat">
+<h3 id="num1">0</h3>
+<p>Playas limpiadas</p>
+</div>
+
+<div class="stat">
+<h3 id="num2">0</h3>
+<p>Clientes satisfechos</p>
+</div>
+
+<div class="stat">
+<h3 id="num3">0</h3>
+<p>Equipos vendidos</p>
+</div>
+</div>
+
+<!-- SECCIÓN 3 -->
+<div class="seccion">
+<div class="texto">
+<h2>Cumplimiento Total</h2>
+<div class="linea"></div>
+<p>
+Todos nuestros equipos cuentan con las NOM (Normas Oficiales Mexicanas) de seguridad y operación.
+</p>
+</div>
+<div class="imagen">
+<img src="d:\Proyecto final de tractores\Imagenes\tractor 6.jpg">
+</div>
+</div>
+
+<!-- SECCIÓN 4 -->
+<div class="seccion reverse">
+<div class="texto">
+<h2>​Nuestra Visión</h2>
+<div class="linea"></div>
+<p>
+Ser el referente número uno en México para la recuperación de espacios costeros en 2030, liderando la transición hacia una limpieza de playas automatizada, ecológica y accesible para todos los sectores turísticos.
+</p>
+</div>
+<div class="imagen">
+<img src="d:\Proyecto final de tractores\Imagenes\tractor 7.jpg">
+</div>
+</div>
+
+<!-- 🔥 VALORES -->
+<div class="valores">
+<h2>Nuestros Valores</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Innovación</h3>
+<p>Tecnología avanzada para mejores resultados.</p>
+</div>
+
+<div class="card">
+<h3>Sustentabilidad</h3>
+<p>Cuidamos el medio ambiente.</p>
+</div>
+
+<div class="card">
+<h3>Calidad</h3>
+<p>Equipos confiables y duraderos.</p>
+</div>
+
+</div>
+</div>
+
+<script>
+
+/* 🔥 ANIMACIÓN SCROLL */
+const secciones = document.querySelectorAll(".seccion");
+
+function mostrar(){
+let trigger = window.innerHeight * 0.85;
+
+secciones.forEach(sec=>{
+let top = sec.getBoundingClientRect().top;
+if(top < trigger){
+sec.classList.add("visible");
+}
+});
+}
+
+window.addEventListener("scroll",mostrar);
+window.addEventListener("load",mostrar);
+
+/* 🔥 CONTADORES */
+function contador(id, max){
+let el = document.getElementById(id);
+let i = 0;
+
+let intervalo = setInterval(()=>{
+i+=Math.ceil(max/50);
+if(i>=max){
+i=max;
+clearInterval(intervalo);
+}
+el.textContent = i;
+},40);
+}
+
+window.addEventListener("load",()=>{
+contador("num1",120);
+contador("num2",300);
+contador("num3",85);
+});
+
+</script>
+
+</body>
+</html> 

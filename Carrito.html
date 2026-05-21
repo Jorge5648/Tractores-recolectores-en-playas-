@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Carrito</title>
+
+<style>
+
+body{
+font-family:'Poppins',sans-serif;
+background:#f4f6f9;
+margin:0;
+}
+
+nav{
+background:rgba(255,255,255,0.8);
+backdrop-filter:blur(10px);
+padding:15px 60px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 5px 20px rgba(0,0,0,0.05);
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.nav-links{
+display:flex;
+align-items:center;
+}
+
+.nav-logo img{
+width:55px;
+border-radius:12px;
+box-shadow:0 6px 15px rgba(0,0,0,0.2);
+transition:0.3s;
+}
+.nav-logo img:hover{
+transform:scale(1.05);
+}
+
+nav a{
+color:#1e2a38;
+margin:0 15px;
+text-decoration:none;
+font-weight:500;
+position:relative;
+}
+
+nav a::after{
+content:"";
+position:absolute;
+width:0;
+height:2px;
+background:#1a6cbe;
+left:0;
+bottom:-5px;
+transition:0.3s;
+}
+
+nav a:hover::after{
+width:100%;
+}
+
+.boton{
+background:linear-gradient(45deg,#1a6cbe,#2980f2);
+color:white;
+padding:10px 22px;
+border-radius:30px;
+font-weight:600;
+box-shadow:0 5px 15px rgba(26,108,190,0.4);
+}
+
+/* CONTENEDOR */
+#carrito{
+max-width:900px;
+margin:40px auto;
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* ITEM */
+.item{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
+border-bottom:1px solid #eee;
+padding-bottom:15px;
+}
+
+.item-info{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.item-info img{
+width:70px;
+border-radius:10px;
+}
+
+.precio{
+color:#27ae60;
+font-weight:bold;
+}
+
+/* BOTÓN ELIMINAR */
+.eliminar{
+background:red;
+color:white;
+border:none;
+padding:6px 10px;
+border-radius:5px;
+cursor:pointer;
+}
+
+/* TOTAL */
+.total{
+text-align:right;
+margin-top:20px;
+font-size:20px;
+}
+
+/* BOTÓN COMPRAR */
+.comprar{
+margin-top:20px;
+width:100%;
+padding:15px;
+background:#27ae60;
+color:white;
+border:none;
+border-radius:10px;
+font-size:18px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.comprar:hover{
+background:#1e8449;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="nav-links">
+<a href="nosotros.html">Nosotros</a>
+<a href="servicios.html">Servicios</a>
+<a href="Carrito.html">Carrito</a>
+<a href="index.html">Inicio</a>
+<a href="registro.html" class="boton">Iniciar sesión</a>
+</div>
+
+<div class="nav-logo">
+<img src="d:\Proyecto final de tractores\Imagenes\logo.jpg.jpg">
+</div>
+</nav>
+
+<div id="carrito">
+
+<div id="lista"></div>
+
+<div class="total">
+Total: $<span id="total">0</span> MXN
+</div>
+
+<button class="comprar" onclick="comprar()">Finalizar compra</button>
+
+</div>
+
+<script>
+
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+function mostrarCarrito(){
+let lista = document.getElementById("lista");
+let total = 0;
+
+lista.innerHTML = "";
+
+if(carrito.length === 0){
+lista.innerHTML = "<h2>Tu carrito está vacío 🛒</h2>";
+document.getElementById("total").textContent = "0";
+return;
+}
+
+carrito.forEach((producto, index) => {
+
+let precioNumero = parseInt(producto.precio.toString().replace(/[$, MXN]/g,"")) || 0;
+total += precioNumero;
+
+lista.innerHTML += `
+<div class="item">
+    <div class="item-info">
+        <img src="${producto.img}">
+        <div>
+            <h3>${producto.nombre}</h3>
+            <p class="precio">${producto.precio}</p>
+        </div>
+    </div>
+    <button class="eliminar" onclick="eliminarProducto(${index})">Eliminar</button>
+</div>
+`;
+});
+
+document.getElementById("total").textContent = total.toLocaleString();
+}
+
+function eliminarProducto(index){
+carrito.splice(index,1);
+localStorage.setItem("carrito", JSON.stringify(carrito));
+mostrarCarrito();
+}
+
+function comprar(){
+if(carrito.length === 0){
+alert("Tu carrito está vacío");
+return;
+}
+
+alert("Compra realizada con éxito ✅");
+localStorage.removeItem("carrito");
+carrito = [];
+mostrarCarrito();
+}
+
+mostrarCarrito();
+
+</script>
+
+</body>
+</html>
